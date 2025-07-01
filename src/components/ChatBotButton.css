@@ -1,0 +1,189 @@
+/* Chatbot Button */
+.chatbot-button {
+  background: linear-gradient(135deg, #6e00ff, #3b0066);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(128, 0, 128, 0.6);
+  cursor: pointer;
+  animation: slideUp 1s ease-in forwards;
+  z-index: 2;
+}
+
+/* Button Container */
+.chatbot-button-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse; /* Keeps button on right */
+  gap: 16px;
+  z-index: 1001;
+}
+
+/* Input Slide */
+.chatbot-input-slide {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(30px);
+  padding: 10px 16px;
+  border-radius: 30px;
+  animation: slideLeft 0.4s ease forwards;
+  max-width: 420px;
+  z-index: 1;
+}
+
+/* Text Input */
+.chatbot-text-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  font-size: 1rem;
+  min-width: 220px;
+}
+
+.chatbot-text-input::placeholder {
+  color: #ccc;
+}
+
+/* Mic and Send Buttons */
+.mic-button,
+.send-button {
+  background: linear-gradient(135deg, #b26eff, #6e00ff);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.mic-button:hover,
+.send-button:hover {
+  background: linear-gradient(135deg, #a94dff, #5600cc);
+}
+
+/* Message Bubble */
+.chatbot-message {
+  position: fixed;
+  bottom: 90px;
+  right: 90px;
+  max-width: 220px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 20px 20px 20px 4px;
+  backdrop-filter: blur(12px);
+  font-size: 0.95rem;
+  animation: popIn 0.6s ease-out forwards;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  transform-origin: bottom right;
+}
+
+/* Chat Window */
+.chat-window {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 300px;
+  height: 400px;
+  background: rgba(20, 20, 30, 0.8);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  z-index: 1002;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.chat-header {
+  padding: 12px 16px;
+  background: rgba(80, 0, 120, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.back-button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.chat-body {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* Animations */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
