@@ -5,11 +5,11 @@ const MainPage = ({ onProfileClick }) => {
   return (
     <div className="main-page">
       {/* Top Navigation */}
-      <div className="navbar">
+      {/* <div className="navbar">
         <div className="profile-icon" onClick={onProfileClick}>
           <img src="https://i.pravatar.cc/40" alt="user" />
         </div>
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <div className="content-boxes">

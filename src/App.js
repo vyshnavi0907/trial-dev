@@ -2,15 +2,22 @@ import React, { useState } from "react";
 import MainPage from "./components/MainPage";
 import Profile from "./components/Profile";
 import SideNav from "./components/SideNav";
-import ChatBotButton from "./components/ChatBotButton"; // ✅ Import Chatbot
+import ChatBotButton from "./components/ChatBotButton";
+// import Login from "./components/Login"; // ✅ New login component
 
 function App() {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ Controls login
   const [showProfile, setShowProfile] = useState(false);
-  const [sideNavOpen, setSideNavOpen] = useState(false); // controls sidebar
+  const [sideNavOpen, setSideNavOpen] = useState(false);
 
   const toggleSideNav = () => {
-    setSideNavOpen(prev => !prev);
+    setSideNavOpen((prev) => !prev);
   };
+
+  // // ✅ Show login screen first
+  // if (!isLoggedIn) {
+  //   return <Login onLoginSuccess={() => setIsLoggedIn(true)} />;
+  // }
 
   return (
     <>
@@ -18,20 +25,25 @@ function App() {
         <Profile onBack={() => setShowProfile(false)} />
       ) : (
         <div style={{ display: "flex" }}>
-          <SideNav isOpen={sideNavOpen} toggleSidebar={toggleSideNav} />
+          {/* 🔥 Passing onProfileClick to SideNav */}
+          <SideNav
+            isOpen={sideNavOpen}
+            toggleSidebar={toggleSideNav}
+            onProfileClick={() => setShowProfile(true)}
+          />
           <div
             style={{
               marginLeft: sideNavOpen ? "220px" : "0",
               padding: "1rem",
               flex: 1,
-              position: "relative"
+              position: "relative",
             }}
           >
             <MainPage
               onProfileClick={() => setShowProfile(true)}
               toggleSideNav={toggleSideNav}
             />
-            <ChatBotButton /> {/* ✅ AI Chatbot component */}
+            <ChatBotButton />
           </div>
         </div>
       )}
